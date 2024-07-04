@@ -8,11 +8,20 @@ export const HeaderBar = styled.header`
   background-image: url(${backgroundImagem});
   background-repeat: no-repeat;
   padding: 24px;
-  display: flex;
-  justify-content: space-around;
   align-items: center;
   background-size: cover;
   font-weight: bold;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+`
+
+export const HeaderLogo = styled.img`
+  display: block;
+  width: 125px;
 `
 
 export const VoltarHome = styled(Link)`
@@ -36,7 +45,7 @@ export const HeroRestaurante = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 32px;
+    padding: 25px 0 32px 0;
   }
 `
 

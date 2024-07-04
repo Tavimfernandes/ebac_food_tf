@@ -1,6 +1,7 @@
 import {
   HeaderBar,
   HeroRestaurante,
+  HeaderLogo,
   Categoria,
   TituloRestaurante,
   VoltarHome
@@ -11,9 +12,11 @@ const HeaderProduct = () => {
   return (
     <>
       <HeaderBar>
-        <VoltarHome to="/">Restaurantes</VoltarHome>
-        <img src={logo} alt="logo" />
-        <p>0 produto(s) no carrinho</p>
+        <div className="container">
+          <VoltarHome to="/">Restaurantes</VoltarHome>
+          <HeaderLogo src={logo} alt="logo" />
+          <p>0 produto(s) no carrinho</p>
+        </div>
       </HeaderBar>
       <HeroRestaurante>
         <div className="container">

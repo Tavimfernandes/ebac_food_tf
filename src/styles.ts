@@ -21,4 +21,10 @@ export const GlobalCss = createGlobalStyle`
     color: ${cores.goiaba};
   }
 
+  .container{
+  max-width: 1024px;
+  width: 100%;
+  margin: 0 auto;
+  }
+
 `
