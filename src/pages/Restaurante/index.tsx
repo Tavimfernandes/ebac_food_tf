@@ -11,6 +11,7 @@ const Produtos: Restaurante[] = [
     description:
       'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
     title: 'Pizza Marguerita',
+    rate: 4.9,
     infos: [],
     image: pizza
   },
@@ -20,6 +21,7 @@ const Produtos: Restaurante[] = [
     description:
       'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
     title: 'Pizza Marguerita',
+    rate: 4.9,
     infos: [],
     image: pizza
   },
@@ -29,6 +31,7 @@ const Produtos: Restaurante[] = [
     description:
       'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
     title: 'Pizza Marguerita',
+    rate: 4.9,
     infos: [],
     image: pizza
   },
@@ -38,6 +41,7 @@ const Produtos: Restaurante[] = [
     description:
       'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
     title: 'Pizza Marguerita',
+    rate: 4.9,
     infos: [],
     image: pizza
   },
@@ -47,6 +51,7 @@ const Produtos: Restaurante[] = [
     description:
       'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
     title: 'Pizza Marguerita',
+    rate: 4.9,
     infos: [],
     image: pizza
   },
@@ -56,6 +61,7 @@ const Produtos: Restaurante[] = [
     description:
       'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
     title: 'Pizza Marguerita',
+    rate: 4.9,
     infos: [],
     image: pizza
   }

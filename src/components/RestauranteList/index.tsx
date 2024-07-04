@@ -22,6 +22,7 @@ const RestauranteList = ({ background, title, restaurantes }: Props) => (
             image={restaurante.image}
             infos={restaurante.infos}
             title={restaurante.title}
+            rate={restaurante.rate}
           />
         ))}
       </List>

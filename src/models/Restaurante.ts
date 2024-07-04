@@ -4,6 +4,7 @@ class Restaurante {
   image: string
   infos: string[]
   title: string
+  rate: number
   id: number
 
   constructor(
@@ -12,7 +13,8 @@ class Restaurante {
     description: string,
     image: string,
     infos: string[],
-    title: string
+    title: string,
+    rate: number
   ) {
     this.id = id
     this.category = category
@@ -20,6 +22,7 @@ class Restaurante {
     this.image = image
     this.infos = infos
     this.title = title
+    this.rate = rate
   }
 }
 

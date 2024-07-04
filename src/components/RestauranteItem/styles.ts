@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 
 export const Card = styled.div`
   background-color: ${cores.branca};
-  padding: 8px;
   position: relative;
   border: 1px solid;
 
@@ -14,12 +13,26 @@ export const Card = styled.div`
   }
 `
 
+export const CardBody = styled.div`
+  padding: 8px 8px 12px 8px;
+`
+
 export const Titulo = styled.h3`
   font-weight: bold;
-  font-size: 16px;
+  font-size: 18px;
   display: block;
-  margin-top: 16px;
-  margin-bottom: 8px;
+`
+
+export const TituloAndRate = styled.div`
+  display: flex;
+  justify-content: space-between;
+`
+
+export const Avaliacao = styled.p`
+  font-weight: bold;
+  font-size: 18px;
+  display: flex;
+  gap: 8px;
 `
 
 export const Descricao = styled.p`
@@ -38,7 +51,7 @@ export const Infos = styled.div`
 
 export const Botao = styled(Link)`
   color: ${cores.bege};
-  padding: 6px 4px;
+  padding: 4px 6px;
   background-color: ${cores.goiaba};
   font-size: 14px;
   font-weight: bold;
