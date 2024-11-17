@@ -1,24 +1,33 @@
-import { LegendaFooter, Rodape, RedesSociais } from './styles'
-import logo from '../../assets/images/logo.svg'
-import instagram from '../../assets/images/instagram.svg'
-import facebook from '../../assets/images/facebook.svg'
-import twitter from '../../assets/images/twitter.svg'
+import logo from '../../assets/Imgs/logo.png'
+import face from '../../assets/Imgs/Facebook.png'
+import twitter from '../../assets/Imgs/Twitter.png'
+import insta from '../../assets/Imgs/Instagram.png'
+
+import { Creditos, Footer as Foot, SocialLinks } from './styles'
 
 const Footer = () => {
   return (
-    <Rodape>
-      <img src={logo} alt="Logo efood" />
-      <RedesSociais>
-        <img src={instagram} alt="Logo instagram" />
-        <img src={facebook} alt="Logo Facebook" />
-        <img src={twitter} alt="Logo Twitter" />
-      </RedesSociais>
-      <LegendaFooter>
+    <Foot>
+      <img src={logo} alt="" />
+      <SocialLinks>
+        <li>
+          <a href="">
+            <img src={face} alt="" />
+          </a>
+          <a href="">
+            <img src={twitter} alt="" />
+          </a>
+          <a href="">
+            <img src={insta} alt="" />
+          </a>
+        </li>
+      </SocialLinks>
+      <Creditos>
         A efood é uma plataforma para divulgação de estabelecimentos, a
         responsabilidade pela entrega, qualidade dos produtos é toda do
-        estabelecimento contratado.
-      </LegendaFooter>
-    </Rodape>
+        estabelecimento contratado.{' '}
+      </Creditos>
+    </Foot>
   )
 }
 

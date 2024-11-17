@@ -1,25 +1,36 @@
 import styled from 'styled-components'
 import { cores } from '../../styles'
 
-export const Rodape = styled.footer`
+export const Footer = styled.div`
   display: flex;
-  align-items: center;
+  width: 100%;
+  height: 340px;
   flex-direction: column;
-  background-color: ${cores.bege};
-  padding: 40px 0;
+  align-items: center;
+  background-color: ${cores.fundo2};
+  margin-top: 50px;
+
+  img {
+    margin-top: 64px;
+    width: 125px;
+  }
+`
+export const SocialLinks = styled.div`
+  img {
+    width: 24px;
+    margin-right: 8px;
+  }
 `
 
-export const LegendaFooter = styled.p`
+export const Creditos = styled.span`
+  margin-top: 50px;
+  width: 480px;
+  height: 24px;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
   font-size: 10px;
-  max-width: 480px;
   line-height: 12px;
   text-align: center;
-`
-
-export const RedesSociais = styled.div`
-  display: flex;
-  justify-content: space-between;
-  gap: 8px;
-  max-width: 88px;
-  margin: 32px 0 80px 0;
 `
