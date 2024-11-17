@@ -1,4 +1,4 @@
-import star from '../../assets/Imgs/star.png'
+import star from '../../assets/images/star.png'
 import { Button, RestaurantCard, Restaurants } from './styles'
 
 import { useGetRestaurantsQuery } from '../../Services/api'

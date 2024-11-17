@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { cores } from '../../styles'
-import remove from '../../assets/Imgs/del.png'
+import remove from '../../assets/images/del.png'
 
 export const CartContainer = styled.div`
   position: fixed;

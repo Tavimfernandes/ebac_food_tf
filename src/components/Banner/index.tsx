@@ -1,6 +1,6 @@
 import { Banner as Ban, Title } from './styles'
 
-import logo from '../../assets/Imgs/logo.png'
+import logo from '../../assets/images/logo.png'
 
 const Banner = () => {
   return (

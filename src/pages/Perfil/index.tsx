@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { open, openItemDetail } from '../../store/reducers/cart'
-import logo from '../../assets/Imgs/logo.png'
-import cover from '../../assets/Imgs/Rectangle.png'
+import logo from '../../assets/images/logo.png'
+import cover from '../../assets/images/Rectangle.png'
 import Cart from '../../components/Cart'
 import ItemPerfil from '../../components/ItemPerfil'
 

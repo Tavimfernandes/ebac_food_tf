@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import vetor from '../../assets/Imgs/Vector.png'
+import vetor from '../../assets/images/Vector.png'
 import { cores } from '../../styles'
 
 export const Banner = styled.div`

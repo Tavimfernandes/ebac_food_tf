@@ -1,7 +1,7 @@
-import logo from '../../assets/Imgs/logo.png'
-import face from '../../assets/Imgs/Facebook.png'
-import twitter from '../../assets/Imgs/Twitter.png'
-import insta from '../../assets/Imgs/Instagram.png'
+import logo from '../../assets/images/logo.png'
+import face from '../../assets/images/Facebook.png'
+import twitter from '../../assets/images/Twitter.png'
+import insta from '../../assets/images/Instagram.png'
 
 import { Creditos, Footer as Foot, SocialLinks } from './styles'
 

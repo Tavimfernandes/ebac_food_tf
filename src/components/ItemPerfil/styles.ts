@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { cores } from '../../styles'
-import close from '../../assets/Imgs/close.png'
+import close from '../../assets/images/close.png'
 
 export const ModalContainer = styled.div`
   position: fixed;
