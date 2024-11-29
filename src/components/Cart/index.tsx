@@ -1,6 +1,7 @@
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { Navigate } from 'react-router-dom'
+import InputMask from 'react-input-mask'
 
 import { RootReducer } from '../../store'
 import { useDispatch, useSelector } from 'react-redux'
@@ -59,58 +60,76 @@ const Cart = () => {
       ano: ''
     },
     validationSchema: Yup.object({
-      name: Yup.string().min(5, 'campo inválido').required('campo obrigatório'),
+      name: Yup.string()
+        .min(5, 'Nome muito curto')
+        .required('Campo obrigatório'),
       endereco: Yup.string()
-        .min(5, 'campo inválido')
-        .required('campo obrigatório'),
+        .min(5, 'Endereço muito curto')
+        .required('Campo obrigatório'),
       cidade: Yup.string()
-        .min(3, 'campo inválido')
-        .required('campo obrigatório'),
-      cep: Yup.string().min(5, 'campo inválido').required('campo obrigatório'),
-      number: Yup.string()
-        .min(1, 'campo inválido')
-        .required('campo obrigatório'),
-      complemento: Yup.string()
-        .min(1, 'campo inválido')
-        .required('campo obrigatório'),
-      cardName: Yup.string()
-        .min(1, 'campo inválido')
-        .required('campo obrigatório'),
+        .min(3, 'Nome da cidade muito curto')
+        .required('Campo obrigatório'),
+      cep: Yup.string()
+        .matches(/^\d{5}-\d{3}$/, 'CEP inválido')
+        .required('Campo obrigatório'),
+      number: Yup.number()
+        .positive('Número inválido')
+        .required('Campo obrigatório'),
+      cardName: Yup.string().required('Nome no cartão obrigatório'),
       cardNumber: Yup.string()
-        .min(1, 'campo inválido')
-        .required('campo obrigatório'),
+        .matches(/^\d{16}$/, 'Número de cartão inválido (16 dígitos)')
+        .required('Número do cartão obrigatório'),
       cardCode: Yup.string()
-        .min(1, 'campo inválido')
-        .required('campo obrigatório'),
-      mes: Yup.string().min(1, 'campo inválido').required('campo obrigatório'),
-      ano: Yup.string().min(1, 'campo inválido').required('campo obrigatório')
+        .matches(/^\d{3}$/, 'Código inválido (3 dígitos)')
+        .required('Código obrigatório'),
+      mes: Yup.string()
+        .matches(/^(0[1-9]|1[0-2])$/, 'Mês inválido')
+        .required('Mês obrigatório'),
+      ano: Yup.string()
+        .matches(/^\d{4}$/, 'Ano inválido')
+        .required('Ano obrigatório')
     }),
-    onSubmit: (values) => {
-      purchase({
-        biling: {
-          name: values.name
-        },
-        delivery: {
-          endereco: values.endereco,
-          cidade: values.cidade,
-          cep: values.cep,
-          numero: values.number,
-          complemento: values.complemento
-        },
-        payment: {
-          card: {
-            name: values.cardName,
-            numero: values.cardNumber,
-            code: values.cardCode,
-            mes: values.mes,
-            ano: values.ano
-          }
-        },
-        products: itemsCart.map((item) => ({
-          id: item.id,
-          price: item.preco
-        }))
-      })
+    onSubmit: async (values, { setSubmitting }) => {
+      try {
+        console.log('Valores submetidos:', values)
+        setSubmitting(true)
+
+        const response = await purchase({
+          biling: {
+            name: values.name
+          },
+          delivery: {
+            endereco: values.endereco,
+            cidade: values.cidade,
+            cep: values.cep,
+            numero: values.number,
+            complemento: values.complemento
+          },
+          payment: {
+            card: {
+              name: values.cardName,
+              numero: values.cardNumber,
+              code: values.cardCode,
+              mes: values.mes,
+              ano: values.ano
+            }
+          },
+          products: itemsCart.map((item) => ({
+            id: item.id,
+            price: item.preco
+          }))
+        })
+
+        console.log('Resposta do servidor:', response)
+        alert('Compra realizada com sucesso!')
+      } catch (error) {
+        console.error('Erro no onSubmit:', error)
+        alert(
+          'Ocorreu um erro ao processar sua compra. Por favor, tente novamente mais tarde.'
+        )
+      } finally {
+        setSubmitting(false)
+      }
     }
   })
 
@@ -193,14 +212,22 @@ const Cart = () => {
                 </label>
                 <label htmlFor="">Numero</label>
                 <br />
-                <input
-                  id="cep"
-                  type="text"
-                  name="cep"
+                <InputMask
+                  mask="99999-999"
                   value={form.values.cep}
                   onChange={form.handleChange}
                   onBlur={form.handleBlur}
-                />
+                >
+                  {() => (
+                    <input
+                      id="cep"
+                      type="text"
+                      name="cep"
+                      value={form.values.cep}
+                      placeholder="Digite seu CEP"
+                    />
+                  )}
+                </InputMask>
                 <input
                   id="number"
                   type="text"
@@ -249,20 +276,37 @@ const Cart = () => {
                   </label>
                 </div>
                 <div>
-                  <input
-                    id="cardNumber"
-                    type="text"
+                  <InputMask
+                    mask="9999 9999 9999 9999"
                     value={form.values.cardNumber}
                     onChange={form.handleChange}
                     onBlur={form.handleBlur}
-                  />
-                  <input
-                    id="cardCode"
-                    type="text"
+                  >
+                    {() => (
+                      <input
+                        id="cardNumber"
+                        type="text"
+                        name="cardNumber"
+                        placeholder="Número do cartão"
+                      />
+                    )}
+                  </InputMask>
+
+                  <InputMask
+                    mask="999"
                     value={form.values.cardCode}
                     onChange={form.handleChange}
                     onBlur={form.handleBlur}
-                  />
+                  >
+                    {() => (
+                      <input
+                        id="cardCode"
+                        type="text"
+                        name="cardCode"
+                        placeholder="CVV"
+                      />
+                    )}
+                  </InputMask>
                 </div>
                 <div>
                   <label id="labelMes" htmlFor="">
@@ -271,20 +315,37 @@ const Cart = () => {
                   <label htmlFor="">Ano</label>
                 </div>
                 <div>
-                  <input
-                    id="mes"
-                    type="text"
+                  <InputMask
+                    mask="99"
                     value={form.values.mes}
                     onChange={form.handleChange}
                     onBlur={form.handleBlur}
-                  />
-                  <input
-                    id="ano"
-                    type="text"
+                  >
+                    {() => (
+                      <input
+                        id="mes"
+                        type="text"
+                        name="mes"
+                        placeholder="Mês"
+                      />
+                    )}
+                  </InputMask>
+
+                  <InputMask
+                    mask="9999"
                     value={form.values.ano}
                     onChange={form.handleChange}
                     onBlur={form.handleBlur}
-                  />
+                  >
+                    {() => (
+                      <input
+                        id="ano"
+                        type="text"
+                        name="ano"
+                        placeholder="Ano"
+                      />
+                    )}
+                  </InputMask>
                 </div>
                 <br />
                 <button onClick={finalizar}>Finalizar Pagamento</button>

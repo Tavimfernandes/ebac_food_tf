@@ -12,6 +12,10 @@ export const CartContainer = styled.div`
   justify-content: flex-end;
   z-index: 1;
 
+  aside {
+    color: #ffc;
+  }
+
   &.is-open {
     display: flex;
   }
